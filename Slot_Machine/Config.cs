@@ -10,7 +10,7 @@ namespace Slot_Machine {
         public bool Debug { get; set; }
         
         
-        public static Vector3 NTFSlotPos = new Vector3(131.5f, 996f, -30.75f);
-        public static Vector3 CISlotPos = new Vector3(7.5f, 992f, -35f);
+        public static Vector3 NTFSlotPos = new Vector3(131.5f, 995.8f, -30.75f);
+        public static Vector3 CISlotPos = new Vector3(7.5f, 991.8f, -35f);
     }
 }
