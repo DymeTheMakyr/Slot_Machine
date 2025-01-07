@@ -50,7 +50,7 @@ namespace Slot_Machine.Handlers {
             //addlight 
             Light.Create(position, Vector3.zero, Vector3.one, true, Color.cyan);
             
-            //Create body
+            //Create bod
             m[0] = Primitive.Create(PrimitiveType.Cube, position + o[0][0], o[0][1] + Vector3.up * rotOffset, o[0][2],true, new Color(1f, 0.4f, 0f));
             m[1] = Primitive.Create(PrimitiveType.Cube, position + o[1][0], o[1][1] + Vector3.up * rotOffset, o[1][2], true, Color.black);
             
