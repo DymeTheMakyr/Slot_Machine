@@ -81,6 +81,7 @@
     <ItemGroup>
         <Compile Include="Config.cs" />
         <Compile Include="Handlers\PlayerHandler.cs" />
+        <Compile Include="Handlers\ServerHandler.cs" />
         <Compile Include="PluginCore.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
