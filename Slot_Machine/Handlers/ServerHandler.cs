@@ -24,9 +24,13 @@ namespace Slot_Machine.Handlers {
         }
 
         public Primitive[] SpawnSlotMachine(Vector3 position, float rotOffset) {
-            Primitive[] m = new Primitive[17];
+            Primitive[] m = new Primitive[20];
+            Light[] l = new Light[3];
             
             //list of sizes {Pos, Rot, Scl}
+            //0-1 Body
+            //2-4 Lever
+            //5-16 Slot Wheels
             Vector3[][] o = new Vector3[][] {
                 new Vector3[]{Quaternion.AngleAxis(rotOffset, Vector3.up) * new Vector3(0f, 0f, -0.125f), new(0f, 0f, 0f), new(1f, 2f, 0.75f)},
                 new Vector3[]{Quaternion.AngleAxis(rotOffset, Vector3.up) * new Vector3(0f, -0.625f, -0.12f), new(0f, 0f, 0f), new(0.95f, 0.75f, 0.75f)},
@@ -45,16 +49,16 @@ namespace Slot_Machine.Handlers {
                 new Vector3[]{Quaternion.AngleAxis(rotOffset, Vector3.up) * new Vector3(-0.3f, 0.25f, 0f), new(90f, 0f, 0f), new(0.2f, 0.31f, 0.75f)},
                 new Vector3[]{Quaternion.AngleAxis(rotOffset, Vector3.up) * new Vector3(-0.3f, 0.25f, 0f), new(45f, 0f, 0f), new(0.2f, 0.31f, 0.75f)},
                 new Vector3[]{Quaternion.AngleAxis(rotOffset, Vector3.up) * new Vector3(-0.3f, 0.25f, 0f), new(0, 0f, 0f), new(0.2f, 0.31f, 0.75f)},
+                new Vector3[]{Quaternion.AngleAxis(rotOffset, Vector3.up) * new Vector3(-0.3f, 0.25f, 0.5f), Vector3.zero, Vector3.one},
+                new Vector3[]{Quaternion.AngleAxis(rotOffset, Vector3.up) * new Vector3(0f, 0.25f, 0.5f), Vector3.zero, Vector3.one},
+                new Vector3[]{Quaternion.AngleAxis(rotOffset, Vector3.up) * new Vector3(0.3f, 0.25f, 0.5f), Vector3.zero, Vector3.one},
             };
             
-            //addlight 
-            Light.Create(position, Vector3.zero, Vector3.one, true, Color.cyan);
-            
-            //Create bod
+            //Create Main Body
             m[0] = Primitive.Create(PrimitiveType.Cube, position + o[0][0], o[0][1] + Vector3.up * rotOffset, o[0][2],true, new Color(1f, 0.4f, 0f));
             m[1] = Primitive.Create(PrimitiveType.Cube, position + o[1][0], o[1][1] + Vector3.up * rotOffset, o[1][2], true, Color.black);
             
-            //Create lever
+            //Create Lever
             m[2] = Primitive.Create(PrimitiveType.Cylinder, position + o[2][0], o[2][1] + Vector3.up * rotOffset, o[2][2], true, Color.grey);
             m[3] = Primitive.Create(PrimitiveType.Cylinder, position + o[3][0], o[3][1] + Vector3.up * rotOffset, o[3][2], true, Color.grey);
             m[4] = Primitive.Create(PrimitiveType.Sphere, position + o[4][0], o[4][1] + Vector3.up * rotOffset, o[4][2], true, Color.red);
@@ -63,6 +67,8 @@ namespace Slot_Machine.Handlers {
             for (int i = 5; i < 17; i++) {
                 Log.Info(i.ToString() + o[i][1]);
                 m[i] = Primitive.Create(PrimitiveType.Cube, position + o[i][0], o[i][1] + Vector3.up * rotOffset, o[i][2]);
+               
+                //Set colours so wheels will be gambleable
                 switch (i%4) {
                     case 0:
                         m[i].Color = Color.magenta*3f;
@@ -79,6 +85,23 @@ namespace Slot_Machine.Handlers {
                 }
             }
             
+            //Set slot initial position
+            for (int i = 9; i < 13; i++) {
+                float init = m[i].Rotation.x;
+                m[i].Rotation = Quaternion.Euler(init + 45f, rotOffset, 0f);
+            }
+
+            for (int i = 13; i < 17; i++) {
+                float init = m[i].Rotation.x;
+                m[i].Rotation = Quaternion.Euler(init + 90f, rotOffset, 0f);
+            }
+            
+            //Add Lights
+            l[0] = Light.Create(o[17][0] + position, o[17][1], o[17][2], true, Color.magenta);
+            l[1] = Light.Create(o[18][0] + position, o[18][1], o[18][2], true, Color.green);
+            l[2] = Light.Create(o[19][0] + position, o[19][1], o[19][2], true, Color.blue);
+            
+            //return primitives
             return m;
         }
         
