@@ -11,21 +11,18 @@ using Light = Exiled.API.Features.Toys.Light;
 namespace Slot_Machine.Handlers {
     public class ServerHandler {
         
-        PluginCore Instance = new PluginCore();
-
-        public Primitive[] CISlots;
-        public Primitive[] NTFSlots;
+        PluginCore Inst = PluginCore.Instance;
         
         public void OnRoundStarted() {
             Log.Info("sawning primitives at " + Config.CISlotPos + " and " + Config.NTFSlotPos);
             
-            CISlots = SpawnSlotMachine(Config.CISlotPos, 180f);
-            NTFSlots = SpawnSlotMachine(Config.NTFSlotPos, 90f);
+            SpawnSlotMachine(Config.CISlotPos, 0f, out Inst.CISlots, out Inst.CILights);
+            SpawnSlotMachine(Config.NTFSlotPos, 90f, out Inst.NTFSlots, out Inst.NTFLights);
         }
 
-        public Primitive[] SpawnSlotMachine(Vector3 position, float rotOffset) {
-            Primitive[] m = new Primitive[20];
-            Light[] l = new Light[3];
+        private void SpawnSlotMachine(Vector3 position, float rotOffset, out Primitive[] m, out Light[] l) {
+            m = new Primitive[20];
+            l = new Light[3];
             
             //list of sizes {Pos, Rot, Scl}
             //0-1 Body
@@ -100,9 +97,6 @@ namespace Slot_Machine.Handlers {
             l[0] = Light.Create(o[17][0] + position, o[17][1], o[17][2], true, Color.magenta);
             l[1] = Light.Create(o[18][0] + position, o[18][1], o[18][2], true, Color.green);
             l[2] = Light.Create(o[19][0] + position, o[19][1], o[19][2], true, Color.blue);
-            
-            //return primitives
-            return m;
         }
         
     }
