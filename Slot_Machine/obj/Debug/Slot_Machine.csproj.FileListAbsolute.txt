@@ -26,3 +26,5 @@ C:\Users\Hugo Simpson\RiderProjects\Slot_Machine\Slot_Machine\obj\Debug\Slot_Mac
 C:\Users\Hugo Simpson\RiderProjects\Slot_Machine\Slot_Machine\obj\Debug\Slot_Mac.6F9358DF.Up2Date
 C:\Users\Hugo Simpson\RiderProjects\Slot_Machine\Slot_Machine\obj\Debug\Slot_Machine.dll
 C:\Users\Hugo Simpson\RiderProjects\Slot_Machine\Slot_Machine\obj\Debug\Slot_Machine.pdb
+C:\Users\Hugo\RiderProjects\Slot_Machine\Slot_Machine\obj\Debug\Slot_Machine.dll
+C:\Users\Hugo\RiderProjects\Slot_Machine\Slot_Machine\obj\Debug\Slot_Machine.pdb
