@@ -26,3 +26,5 @@ C:\Users\Hugo Simpson\RiderProjects\Slot_Machine\Slot_Machine\obj\Release\Slot_M
 C:\Users\Hugo Simpson\RiderProjects\Slot_Machine\Slot_Machine\obj\Release\Slot_Mac.6F9358DF.Up2Date
 C:\Users\Hugo Simpson\RiderProjects\Slot_Machine\Slot_Machine\obj\Release\Slot_Machine.dll
 C:\Users\Hugo Simpson\RiderProjects\Slot_Machine\Slot_Machine\obj\Release\Slot_Machine.pdb
+C:\Users\Hugo Simpson\RiderProjects\Slot_Machine\Slot_Machine\bin\Release\Assembly-CSharp-firstpass.dll
+C:\Users\Hugo Simpson\RiderProjects\Slot_Machine\Slot_Machine\bin\Release\UnityEngine.ParticleSystemModule.dll

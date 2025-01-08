@@ -17,7 +17,7 @@
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
+        <DebugType>embedded</DebugType>
         <Optimize>false</Optimize>
         <OutputPath>bin\Debug\</OutputPath>
         <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -34,8 +34,14 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+          <HintPath>..\..\..\..\..\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Assembly-CSharp.dll</HintPath>
+        </Reference>
         <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
           <HintPath>..\packages\ExMod.Exiled.9.2.2\lib\net48\Assembly-CSharp-Publicized.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+          <HintPath>..\..\..\..\..\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
         </Reference>
         <Reference Include="CommandSystem.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
           <HintPath>..\packages\ExMod.Exiled.9.2.2\lib\net48\CommandSystem.Core.dll</HintPath>
@@ -79,6 +85,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Classes\SlotMachine.cs" />
         <Compile Include="Config.cs" />
         <Compile Include="Handlers\PlayerHandler.cs" />
         <Compile Include="Handlers\ServerHandler.cs" />

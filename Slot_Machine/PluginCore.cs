@@ -1,6 +1,7 @@
 ﻿using AdminToys;
 using Exiled.API.Features;
 using Exiled.API.Features.Toys;
+using Slot_Machine.Classes;
 using UnityEngine;
 using Light = Exiled.API.Features.Toys.Light;
 using Log = PluginAPI.Core.Log;
@@ -11,10 +12,8 @@ namespace Slot_Machine {
     public class PluginCore : Plugin<Config> {
         public static PluginCore Instance;
 
-        public Primitive[] CISlots;
-        public Primitive[] NTFSlots;
-        public Light[] CILights;
-        public Light[] NTFLights;
+        public static SlotMachine CISlots;
+        public static SlotMachine NTFSlots;
         
         private Handlers.PlayerHandler playerHandler;
         private Handlers.ServerHandler serverHandler;        
